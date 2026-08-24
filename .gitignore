@@ -1,0 +1,46 @@
+# Local development environments and machine-specific configuration
+.direnv/
+.local/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Python caches, test output, and package artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+dist/
+build/
+*.egg-info/
+
+# Benchmarks, logs, and runtime state
+benchmark-results/
+*.log
+*.sock
+*.pid
+
+# Downloaded models and generated audio
+*.onnx
+*.onnx.json
+*.pcm
+*.wav
+*.mp3
+*.flac
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
