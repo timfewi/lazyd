@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lazyd-tts"
+version = "0.1.0"
+description = "Low-latency, local streaming TTS daemon"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+lazyd-tts = "lazyd_tts.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

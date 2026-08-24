@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export PYTHONPATH="${PYTHONPATH:+${PYTHONPATH}:}src"
+
+python3 -m compileall -q src tests benchmarks examples
+python3 -m unittest discover -s tests -v
+python3 benchmarks/ttfa.py   --backend tone   --iterations 50   --max-p95-ms 50
+
+if command -v nix-instantiate >/dev/null 2>&1; then
+  nix-instantiate --parse nix/package.nix >/dev/null
+  nix-instantiate --parse nix/module.nix >/dev/null
+else
+  echo "SKIP: Nix source parsing (nix-instantiate unavailable)" >&2
+fi
